@@ -15,3 +15,22 @@ void setupLocator() {
   locator.registerLazySingleton<ResourceService>(() => ResourceService(Dio()));
   locator.registerFactory(() => ResourceBloc(locator<ResourceService>()));
 }
+
+
+
+
+// final GetIt locator = GetIt.instance;
+//
+// void setupLocator() {
+//
+//   locator.registerLazySingleton<Dio>(() {
+//     final dio = Dio();
+//     dio.options.contentType = 'application/json';
+//     return dio;
+//   });
+//
+//   locator.registerLazySingleton<UserService>(() => UserService(locator<Dio>()));
+//   locator.registerLazySingleton<ResourceService>(() => ResourceService(locator<Dio>()));
+//   locator.registerFactory(() => UsersBloc(locator<UserService>(), page: 1));
+//   locator.registerFactory(() => ResourceBloc(locator<ResourceService>()));
+// }
