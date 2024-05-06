@@ -5,10 +5,13 @@ import 'package:list_view_bloc/presentation/bloc/resource_bloc/resource_bloc.dar
 
 
 import '../../presentation/bloc/user_bloc/users_bloc.dart';
+import '../datasources/resource_service.dart';
 
 final GetIt locator = GetIt.instance;
 
 void setupLocator() {
   locator.registerLazySingleton<UserService>(() => UserService(Dio()));
   locator.registerFactory(() => UsersBloc(locator<UserService>(), page: 1));
+  locator.registerLazySingleton<ResourceService>(() => ResourceService(Dio()));
+  locator.registerFactory(() => ResourceBloc(locator<ResourceService>()));
 }

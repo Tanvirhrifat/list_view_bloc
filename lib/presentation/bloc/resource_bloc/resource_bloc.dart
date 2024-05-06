@@ -1,26 +1,20 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:list_view_bloc/data/datasources/resource_service.dart';
 import 'package:list_view_bloc/presentation/bloc/resource_bloc/resource_event.dart';
 import 'package:list_view_bloc/presentation/bloc/resource_bloc/resource_state.dart';
 
-
-import '../../../data/datasources/resource_service.dart';
-
-
 class ResourceBloc extends Bloc<ResourceEvent, ResourceState> {
-  final ApiService apiService;
+  final ResourceService resourceService;
 
-  ResourceBloc(this.apiService) : super(const ResourceState.initial());
-
-  Future<ResourceState> mapEventToState(ResourceEvent event) async {
-    if (event is Started) {
-
+  ResourceBloc(this.resourceService) : super(const ResourceState.initial()) {
+    on<LoadResources>((event, emit) async {
+      emit(const ResourceState.loading());
       try {
-        final resourceData = await apiService.getUnknownData();
-        return ResourceState.loaded(resourceData);
+        final resources = await resourceService.getResourceList();
+        emit(ResourceState.loaded(resources.data));
       } catch (e) {
-        return ResourceState.error("Failed to fetch resource data");
+        emit(ResourceState.error(e.toString()));
       }
-    }
-    return const ResourceState.initial();
+    });
   }
 }

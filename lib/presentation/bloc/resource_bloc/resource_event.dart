@@ -4,5 +4,5 @@ part 'resource_event.freezed.dart';
 
 @freezed
 class ResourceEvent with _$ResourceEvent {
-  const factory ResourceEvent.started() = Started;
+  const factory ResourceEvent.loadResources() = LoadResources;
 }

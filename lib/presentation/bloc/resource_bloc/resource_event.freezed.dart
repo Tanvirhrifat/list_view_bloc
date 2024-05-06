@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ResourceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() loadResources,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? loadResources,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? loadResources,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
+    required TResult Function(LoadResources value) loadResources,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Started value)? started,
+    TResult? Function(LoadResources value)? loadResources,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
+    TResult Function(LoadResources value)? loadResources,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,35 +69,35 @@ class _$ResourceEventCopyWithImpl<$Res, $Val extends ResourceEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$LoadResourcesImplCopyWith<$Res> {
+  factory _$$LoadResourcesImplCopyWith(
+          _$LoadResourcesImpl value, $Res Function(_$LoadResourcesImpl) then) =
+      __$$LoadResourcesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ResourceEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$LoadResourcesImplCopyWithImpl<$Res>
+    extends _$ResourceEventCopyWithImpl<$Res, _$LoadResourcesImpl>
+    implements _$$LoadResourcesImplCopyWith<$Res> {
+  __$$LoadResourcesImplCopyWithImpl(
+      _$LoadResourcesImpl _value, $Res Function(_$LoadResourcesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements Started {
-  const _$StartedImpl();
+class _$LoadResourcesImpl implements LoadResources {
+  const _$LoadResourcesImpl();
 
   @override
   String toString() {
-    return 'ResourceEvent.started()';
+    return 'ResourceEvent.loadResources()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$LoadResourcesImpl);
   }
 
   @override
@@ -106,27 +106,27 @@ class _$StartedImpl implements Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() loadResources,
   }) {
-    return started();
+    return loadResources();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? loadResources,
   }) {
-    return started?.call();
+    return loadResources?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? loadResources,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (loadResources != null) {
+      return loadResources();
     }
     return orElse();
   }
@@ -134,32 +134,32 @@ class _$StartedImpl implements Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
+    required TResult Function(LoadResources value) loadResources,
   }) {
-    return started(this);
+    return loadResources(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Started value)? started,
+    TResult? Function(LoadResources value)? loadResources,
   }) {
-    return started?.call(this);
+    return loadResources?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
+    TResult Function(LoadResources value)? loadResources,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (loadResources != null) {
+      return loadResources(this);
     }
     return orElse();
   }
 }
 
-abstract class Started implements ResourceEvent {
-  const factory Started() = _$StartedImpl;
+abstract class LoadResources implements ResourceEvent {
+  const factory LoadResources() = _$LoadResourcesImpl;
 }

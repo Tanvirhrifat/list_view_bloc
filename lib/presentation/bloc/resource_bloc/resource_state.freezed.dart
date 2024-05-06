@@ -19,44 +19,50 @@ mixin _$ResourceState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ResourceData resourceData) loaded,
-    required TResult Function(String errorMessage) error,
+    required TResult Function() loading,
+    required TResult Function(List<Resource> resources) loaded,
+    required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ResourceData resourceData)? loaded,
-    TResult? Function(String errorMessage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Resource> resources)? loaded,
+    TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ResourceData resourceData)? loaded,
-    TResult Function(String errorMessage)? error,
+    TResult Function()? loading,
+    TResult Function(List<Resource> resources)? loaded,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(ResourceStateInitial value) initial,
+    required TResult Function(ResourceStateLoading value) loading,
+    required TResult Function(ResourceStateLoaded value) loaded,
+    required TResult Function(ResourceStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(ResourceStateInitial value)? initial,
+    TResult? Function(ResourceStateLoading value)? loading,
+    TResult? Function(ResourceStateLoaded value)? loaded,
+    TResult? Function(ResourceStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(ResourceStateInitial value)? initial,
+    TResult Function(ResourceStateLoading value)? loading,
+    TResult Function(ResourceStateLoaded value)? loaded,
+    TResult Function(ResourceStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -81,25 +87,25 @@ class _$ResourceStateCopyWithImpl<$Res, $Val extends ResourceState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$ResourceStateInitialImplCopyWith<$Res> {
+  factory _$$ResourceStateInitialImplCopyWith(_$ResourceStateInitialImpl value,
+          $Res Function(_$ResourceStateInitialImpl) then) =
+      __$$ResourceStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ResourceStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$ResourceStateInitialImplCopyWithImpl<$Res>
+    extends _$ResourceStateCopyWithImpl<$Res, _$ResourceStateInitialImpl>
+    implements _$$ResourceStateInitialImplCopyWith<$Res> {
+  __$$ResourceStateInitialImplCopyWithImpl(_$ResourceStateInitialImpl _value,
+      $Res Function(_$ResourceStateInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+class _$ResourceStateInitialImpl implements ResourceStateInitial {
+  const _$ResourceStateInitialImpl();
 
   @override
   String toString() {
@@ -109,7 +115,8 @@ class _$InitialImpl implements Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ResourceStateInitialImpl);
   }
 
   @override
@@ -119,8 +126,9 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ResourceData resourceData) loaded,
-    required TResult Function(String errorMessage) error,
+    required TResult Function() loading,
+    required TResult Function(List<Resource> resources) loaded,
+    required TResult Function(String error) error,
   }) {
     return initial();
   }
@@ -129,8 +137,9 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ResourceData resourceData)? loaded,
-    TResult? Function(String errorMessage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Resource> resources)? loaded,
+    TResult? Function(String error)? error,
   }) {
     return initial?.call();
   }
@@ -139,8 +148,9 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ResourceData resourceData)? loaded,
-    TResult Function(String errorMessage)? error,
+    TResult Function()? loading,
+    TResult Function(List<Resource> resources)? loaded,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -152,9 +162,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(ResourceStateInitial value) initial,
+    required TResult Function(ResourceStateLoading value) loading,
+    required TResult Function(ResourceStateLoaded value) loaded,
+    required TResult Function(ResourceStateError value) error,
   }) {
     return initial(this);
   }
@@ -162,9 +173,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(ResourceStateInitial value)? initial,
+    TResult? Function(ResourceStateLoading value)? loading,
+    TResult? Function(ResourceStateLoaded value)? loaded,
+    TResult? Function(ResourceStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -172,9 +184,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(ResourceStateInitial value)? initial,
+    TResult Function(ResourceStateLoading value)? loading,
+    TResult Function(ResourceStateLoaded value)? loaded,
+    TResult Function(ResourceStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -184,102 +197,79 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements ResourceState {
-  const factory Initial() = _$InitialImpl;
+abstract class ResourceStateInitial implements ResourceState {
+  const factory ResourceStateInitial() = _$ResourceStateInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ResourceData resourceData});
+abstract class _$$ResourceStateLoadingImplCopyWith<$Res> {
+  factory _$$ResourceStateLoadingImplCopyWith(_$ResourceStateLoadingImpl value,
+          $Res Function(_$ResourceStateLoadingImpl) then) =
+      __$$ResourceStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$ResourceStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+class __$$ResourceStateLoadingImplCopyWithImpl<$Res>
+    extends _$ResourceStateCopyWithImpl<$Res, _$ResourceStateLoadingImpl>
+    implements _$$ResourceStateLoadingImplCopyWith<$Res> {
+  __$$ResourceStateLoadingImplCopyWithImpl(_$ResourceStateLoadingImpl _value,
+      $Res Function(_$ResourceStateLoadingImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? resourceData = null,
-  }) {
-    return _then(_$LoadedImpl(
-      null == resourceData
-          ? _value.resourceData
-          : resourceData // ignore: cast_nullable_to_non_nullable
-              as ResourceData,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(this.resourceData);
-
-  @override
-  final ResourceData resourceData;
+class _$ResourceStateLoadingImpl implements ResourceStateLoading {
+  const _$ResourceStateLoadingImpl();
 
   @override
   String toString() {
-    return 'ResourceState.loaded(resourceData: $resourceData)';
+    return 'ResourceState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
-            (identical(other.resourceData, resourceData) ||
-                other.resourceData == resourceData));
+            other is _$ResourceStateLoadingImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, resourceData);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ResourceData resourceData) loaded,
-    required TResult Function(String errorMessage) error,
+    required TResult Function() loading,
+    required TResult Function(List<Resource> resources) loaded,
+    required TResult Function(String error) error,
   }) {
-    return loaded(resourceData);
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ResourceData resourceData)? loaded,
-    TResult? Function(String errorMessage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Resource> resources)? loaded,
+    TResult? Function(String error)? error,
   }) {
-    return loaded?.call(resourceData);
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ResourceData resourceData)? loaded,
-    TResult Function(String errorMessage)? error,
+    TResult Function()? loading,
+    TResult Function(List<Resource> resources)? loaded,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(resourceData);
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -287,9 +277,159 @@ class _$LoadedImpl implements Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(ResourceStateInitial value) initial,
+    required TResult Function(ResourceStateLoading value) loading,
+    required TResult Function(ResourceStateLoaded value) loaded,
+    required TResult Function(ResourceStateError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ResourceStateInitial value)? initial,
+    TResult? Function(ResourceStateLoading value)? loading,
+    TResult? Function(ResourceStateLoaded value)? loaded,
+    TResult? Function(ResourceStateError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ResourceStateInitial value)? initial,
+    TResult Function(ResourceStateLoading value)? loading,
+    TResult Function(ResourceStateLoaded value)? loaded,
+    TResult Function(ResourceStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResourceStateLoading implements ResourceState {
+  const factory ResourceStateLoading() = _$ResourceStateLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ResourceStateLoadedImplCopyWith<$Res> {
+  factory _$$ResourceStateLoadedImplCopyWith(_$ResourceStateLoadedImpl value,
+          $Res Function(_$ResourceStateLoadedImpl) then) =
+      __$$ResourceStateLoadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Resource> resources});
+}
+
+/// @nodoc
+class __$$ResourceStateLoadedImplCopyWithImpl<$Res>
+    extends _$ResourceStateCopyWithImpl<$Res, _$ResourceStateLoadedImpl>
+    implements _$$ResourceStateLoadedImplCopyWith<$Res> {
+  __$$ResourceStateLoadedImplCopyWithImpl(_$ResourceStateLoadedImpl _value,
+      $Res Function(_$ResourceStateLoadedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resources = null,
+  }) {
+    return _then(_$ResourceStateLoadedImpl(
+      null == resources
+          ? _value._resources
+          : resources // ignore: cast_nullable_to_non_nullable
+              as List<Resource>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResourceStateLoadedImpl implements ResourceStateLoaded {
+  const _$ResourceStateLoadedImpl(final List<Resource> resources)
+      : _resources = resources;
+
+  final List<Resource> _resources;
+  @override
+  List<Resource> get resources {
+    if (_resources is EqualUnmodifiableListView) return _resources;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_resources);
+  }
+
+  @override
+  String toString() {
+    return 'ResourceState.loaded(resources: $resources)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResourceStateLoadedImpl &&
+            const DeepCollectionEquality()
+                .equals(other._resources, _resources));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_resources));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResourceStateLoadedImplCopyWith<_$ResourceStateLoadedImpl> get copyWith =>
+      __$$ResourceStateLoadedImplCopyWithImpl<_$ResourceStateLoadedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Resource> resources) loaded,
+    required TResult Function(String error) error,
+  }) {
+    return loaded(resources);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Resource> resources)? loaded,
+    TResult? Function(String error)? error,
+  }) {
+    return loaded?.call(resources);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Resource> resources)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(resources);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ResourceStateInitial value) initial,
+    required TResult Function(ResourceStateLoading value) loading,
+    required TResult Function(ResourceStateLoaded value) loaded,
+    required TResult Function(ResourceStateError value) error,
   }) {
     return loaded(this);
   }
@@ -297,9 +437,10 @@ class _$LoadedImpl implements Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(ResourceStateInitial value)? initial,
+    TResult? Function(ResourceStateLoading value)? loading,
+    TResult? Function(ResourceStateLoaded value)? loaded,
+    TResult? Function(ResourceStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -307,9 +448,10 @@ class _$LoadedImpl implements Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(ResourceStateInitial value)? initial,
+    TResult Function(ResourceStateLoading value)? loading,
+    TResult Function(ResourceStateLoaded value)? loaded,
+    TResult Function(ResourceStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -319,41 +461,42 @@ class _$LoadedImpl implements Loaded {
   }
 }
 
-abstract class Loaded implements ResourceState {
-  const factory Loaded(final ResourceData resourceData) = _$LoadedImpl;
+abstract class ResourceStateLoaded implements ResourceState {
+  const factory ResourceStateLoaded(final List<Resource> resources) =
+      _$ResourceStateLoadedImpl;
 
-  ResourceData get resourceData;
+  List<Resource> get resources;
   @JsonKey(ignore: true)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+  _$$ResourceStateLoadedImplCopyWith<_$ResourceStateLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$ResourceStateErrorImplCopyWith<$Res> {
+  factory _$$ResourceStateErrorImplCopyWith(_$ResourceStateErrorImpl value,
+          $Res Function(_$ResourceStateErrorImpl) then) =
+      __$$ResourceStateErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String errorMessage});
+  $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ResourceStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$ResourceStateErrorImplCopyWithImpl<$Res>
+    extends _$ResourceStateCopyWithImpl<$Res, _$ResourceStateErrorImpl>
+    implements _$$ResourceStateErrorImplCopyWith<$Res> {
+  __$$ResourceStateErrorImplCopyWithImpl(_$ResourceStateErrorImpl _value,
+      $Res Function(_$ResourceStateErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorMessage = null,
+    Object? error = null,
   }) {
-    return _then(_$ErrorImpl(
-      null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
+    return _then(_$ResourceStateErrorImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -361,65 +504,68 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl(this.errorMessage);
+class _$ResourceStateErrorImpl implements ResourceStateError {
+  const _$ResourceStateErrorImpl(this.error);
 
   @override
-  final String errorMessage;
+  final String error;
 
   @override
   String toString() {
-    return 'ResourceState.error(errorMessage: $errorMessage)';
+    return 'ResourceState.error(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            other is _$ResourceStateErrorImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorMessage);
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+  _$$ResourceStateErrorImplCopyWith<_$ResourceStateErrorImpl> get copyWith =>
+      __$$ResourceStateErrorImplCopyWithImpl<_$ResourceStateErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ResourceData resourceData) loaded,
-    required TResult Function(String errorMessage) error,
+    required TResult Function() loading,
+    required TResult Function(List<Resource> resources) loaded,
+    required TResult Function(String error) error,
   }) {
-    return error(errorMessage);
+    return error(this.error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ResourceData resourceData)? loaded,
-    TResult? Function(String errorMessage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Resource> resources)? loaded,
+    TResult? Function(String error)? error,
   }) {
-    return error?.call(errorMessage);
+    return error?.call(this.error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ResourceData resourceData)? loaded,
-    TResult Function(String errorMessage)? error,
+    TResult Function()? loading,
+    TResult Function(List<Resource> resources)? loaded,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorMessage);
+      return error(this.error);
     }
     return orElse();
   }
@@ -427,9 +573,10 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(ResourceStateInitial value) initial,
+    required TResult Function(ResourceStateLoading value) loading,
+    required TResult Function(ResourceStateLoaded value) loaded,
+    required TResult Function(ResourceStateError value) error,
   }) {
     return error(this);
   }
@@ -437,9 +584,10 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(ResourceStateInitial value)? initial,
+    TResult? Function(ResourceStateLoading value)? loading,
+    TResult? Function(ResourceStateLoaded value)? loaded,
+    TResult? Function(ResourceStateError value)? error,
   }) {
     return error?.call(this);
   }
@@ -447,9 +595,10 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(ResourceStateInitial value)? initial,
+    TResult Function(ResourceStateLoading value)? loading,
+    TResult Function(ResourceStateLoaded value)? loaded,
+    TResult Function(ResourceStateError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -459,11 +608,12 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements ResourceState {
-  const factory Error(final String errorMessage) = _$ErrorImpl;
+abstract class ResourceStateError implements ResourceState {
+  const factory ResourceStateError(final String error) =
+      _$ResourceStateErrorImpl;
 
-  String get errorMessage;
+  String get error;
   @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+  _$$ResourceStateErrorImplCopyWith<_$ResourceStateErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

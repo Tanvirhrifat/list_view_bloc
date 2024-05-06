@@ -8,12 +8,12 @@ part of 'resource_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ApiService implements ApiService {
-  _ApiService(
+class _ResourceService implements ResourceService {
+  _ResourceService(
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://reqres.in/api';
+    baseUrl ??= 'https://reqres.in/api/';
   }
 
   final Dio _dio;
@@ -21,20 +21,20 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<ResourceData> getUnknownData() async {
+  Future<ResourceList> getResourceList() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ResourceData>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<ResourceList>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/unknown',
+              'unknown',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,7 +43,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ResourceData.fromJson(_result.data!);
+    final value = ResourceList.fromJson(_result.data!);
     return value;
   }
 

@@ -1,24 +1,26 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'resource_model.freezed.dart';
 part 'resource_model.g.dart';
 
-@JsonSerializable()
-class ResourceData {
-  final int id;
-  final String name;
-  final int year;
-  final String color;
-  @JsonKey(name: 'pantone_value')
-  final String pantoneValue;
+@freezed
+class Resource with _$Resource {
+  const factory Resource({
+    required int id,
+    required String name,
+    required int year,
+    required String color,
+    required String pantone_value,
+  }) = _Resource;
 
-  ResourceData({
-    required this.id,
-    required this.name,
-    required this.year,
-    required this.color,
-    required this.pantoneValue,
-  });
+  factory Resource.fromJson(Map<String, dynamic> json) => _$ResourceFromJson(json);
+}
 
-  factory ResourceData.fromJson(Map<String, dynamic> json) => _$ResourceDataFromJson(json);
-  Map<String, dynamic> toJson() => _$ResourceDataToJson(this);
+@freezed
+class ResourceList with _$ResourceList {
+  const factory ResourceList({
+    required List<Resource> data,
+  }) = _ResourceList;
+
+  factory ResourceList.fromJson(Map<String, dynamic> json) => _$ResourceListFromJson(json);
 }

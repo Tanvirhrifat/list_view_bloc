@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_view_bloc/presentation/screens/resource_list_screen.dart';
 import 'package:list_view_bloc/presentation/screens/user_list_screen.dart';
 
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UserListScreen(),
+      home: ResourceListScreen(),
     );
   }
 }
